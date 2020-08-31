@@ -1,5 +1,5 @@
 {
-  "name": "quickconfig",
+  "name": "quickjsonconfig",
   "version": "0.0.1",
   "description": "Simple JavaScript package to read in json files for project configuration",
   "main": "index.js",

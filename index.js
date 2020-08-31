@@ -1,3 +1,3 @@
-const quickConfig = require('./src/QuickConfig.js');
+const quickJsonConfig = require('./src/QuickJsonConfig.js');
 
-exports.QuickConfig = quickConfig;
+exports.QuickJsonConfig = quickJsonConfig;
