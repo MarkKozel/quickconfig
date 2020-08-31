@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/MarkKozel/quickconfig/issues"
   },
-  "homepage": "https://github.com/MarkKozel/quickconfig#readme"
+  "homepage": "https://github.com/MarkKozel/quickconfig#readme",
+  "devDependencies": {
+    "documentation": "^13.0.2",
+    "jest": "^26.4.2"
+  }
 }
