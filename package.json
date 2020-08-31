@@ -1,0 +1,24 @@
+{
+  "name": "quickconfig",
+  "version": "0.0.1",
+  "description": "Simple JavaScript package to read in json files for project configuration",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarkKozel/quickconfig.git"
+  },
+  "keywords": [
+    "javascript",
+    "json",
+    "config"
+  ],
+  "author": "Mark Kozel <development@markkozel.net>",
+  "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/MarkKozel/quickconfig/issues"
+  },
+  "homepage": "https://github.com/MarkKozel/quickconfig#readme"
+}
