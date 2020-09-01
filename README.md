@@ -2,6 +2,10 @@
 
 Simple JavaScript package to read in json files for project configuration
 
+After elements are read from file and parsed into a JavaScript object, each element is added to the instantiated QuickJsonConfig object as member variables. Also, simple *set* and *get* member functions are added to the same instantiated QuickJsonConfig object
+
+As silly as this is, I think it is pretty cool
+
 ## Requires:
 - Node 12.x, maybe earlier
 
@@ -101,6 +105,7 @@ console.log(obj)
       Shows: [ { location: 'home', when: 'most nights' } ]
     }
 ```
+
 ## License:
 [CC-BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 Attribution-NonCommercial-ShareAlike 4.0 International
