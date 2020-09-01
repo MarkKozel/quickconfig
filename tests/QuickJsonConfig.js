@@ -3,8 +3,28 @@ const getProjRoot = require("../src/utils/fileUtils").getProjRoot;
 
 const path = require('path');
 
-let qjc1 = new QuickJsonConfig(path.join(getProjRoot(), "index.js"));
-console.log(qjc1.configFile);
+let configObj = new QuickJsonConfig(path.join(getProjRoot(), "tests", "test1.json"));
 
-let qjc2 = new QuickJsonConfig(path.join(getProjRoot(), "badpath.123"));
-console.log(qjc2.configFile);
+configObj.setFirstName("Steven");
+console.log(configObj.getFirstName())
+console.log(configObj.getLastName())
+console.log(configObj.getPosition())
+console.log(configObj.getShows())
+
+configObj.setFirstName("Gern");
+configObj.setLastName("Blanston");
+configObj.setPosition("Plain old person");
+configObj.setShows([
+  {
+    "location": "home",
+    "when": "most nights"
+  }
+]);
+
+console.log(configObj.getFirstName())
+console.log(configObj.getLastName())
+console.log(configObj.getPosition())
+console.log(configObj.getShows())
+
+let obj = configObj._getJson();
+console.log(obj)

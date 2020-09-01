@@ -4,7 +4,8 @@
   "description": "Simple JavaScript package to read in json files for project configuration",
   "main": "index.js",
   "scripts": {
-    "test": "jest tests"
+    "test": "jest tests",
+    "docs": "node_modules/documentation/bin/documentation.js build --format html --output docs --project-name 'Quick Json Config' --project-description 'Simple JavaScript package to read in json files for project configuration' --project-homepage 'https://www.npmjs.com/package/quickjsonconfig'"
   },
   "repository": {
     "type": "git",
