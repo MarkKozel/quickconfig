@@ -32,9 +32,7 @@ Simple JavaScript package to read in json files for project configuration
 
 *Load file and call getters*
 ```javascript
-const QuickJsonConfig = require('../src/QuickJsonConfig');
-
-const path = require('path');
+const QuickJsonConfig = require('quickjsonconfig').QuickJsonConfig;
 
 let configObj = new QuickJsonConfig(path/to/test.json));
 
