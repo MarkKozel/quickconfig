@@ -8,7 +8,9 @@ class QuickJsonConfig {
       this._configFile = configFile;
       this._readFile();
       this._embedJson();
-    };
+    } else {
+      this._jsonData = {};
+    }
   }
 
   /**
@@ -44,8 +46,8 @@ class QuickJsonConfig {
   _readFile() {
     if (this._configFile) {
       try {
-        this._rawData = fs.readFileSync(this._configFile, 'utf8');
-        this._jsonData = JSON.parse(this._rawData);
+        // this._rawData = fs.readFileSync(this._configFile, 'utf8');
+        this._jsonData = JSON.parse(fs.readFileSync(this._configFile, 'utf8'));
       } catch (error) {
         console.error(error);
       }
@@ -53,24 +55,44 @@ class QuickJsonConfig {
   }
 
   /**
-   * Embeds each json element into this class as a public member, then creates a simple get/set method for each
+   * Embeds each json element into this class. Creates a simple get/set method for each
+   * @param {object} el - json key-value pair for embedding
+   */
+  _embedElement(el) {
+    let getName = `get${el}`;
+    this[getName] = function () {
+      return this._jsonData[el];
+    }
+
+    let setName = `set${el}`;
+    this[setName] = function (newVal) {
+      if (typeof newVal === typeof this._jsonData[el]) {
+        this._jsonData[el] = newVal;
+      }
+    }
+  }
+  /**
+   * Traverses json and embeds each element into class
    */
   _embedJson() {
     for (let el in this._jsonData) {
-      this[el] = this._jsonData[el];
+      this._embedElement(el);
+    }
+  }
 
-      let getName = `get${el}`;
-      this[getName] = function () {
-        return this[el];
-      }
+  /**
+   * Adds a new element if it does not already exist
+   * @param {object} obj 
+   */
+  _addElement(obj) {
 
-      let setName = `set${el}`;
-      this[setName] = function (newVal) {
-        if (typeof newVal === typeof this[el]) {
-          this[el] = newVal;
-          this._jsonData[el] = newVal;
-        }
+    if (typeof obj === 'object') {
+      let key = Object.keys(obj)[0]
+      let value = Object.values(obj)[0]
+      if (!this._jsonData[key]) {
+        this._jsonData[key] = value;
       }
+      this._embedElement(key);
     }
   }
 
