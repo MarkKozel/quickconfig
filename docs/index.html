@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset='utf-8'>
-  <title>Quick Json Config 0.0.1 | Documentation</title>
+  <title>Quick Json Config 0.0.5 | Documentation</title>
   <meta name='description' content='Simple JavaScript package to read in json files for project configuration'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>Quick Json Config</h3>
-          <div class='mb1'><code>0.0.1</code></div>
+          <div class='mb1'><code>0.0.5</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -59,9 +59,29 @@
               
                 
                 <li><a
+                  href='#_embedelement'
+                  class="">
+                  _embedElement
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#_embedjson'
                   class="">
                   _embedJson
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#_addelement'
+                  class="">
+                  _addElement
                   
                 </a>
                 
@@ -261,6 +281,70 @@
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='_embedelement'>
+      _embedElement
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Embeds each json element into this class. Creates a simple get/set method for each</p>
+
+    <div class='pre p1 fill-light mt0'>_embedElement(el: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>el</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    json key-value pair for embedding
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='_embedjson'>
       _embedJson
     </h3>
@@ -269,7 +353,7 @@
   </div>
   
 
-  <p>Embeds each json element into this class as a public member, then creates a simple get/set method for each</p>
+  <p>Traverses json and embeds each element into class</p>
 
     <div class='pre p1 fill-light mt0'>_embedJson()</div>
   
@@ -282,6 +366,69 @@
   
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='_addelement'>
+      _addElement
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Adds a new element if it does not already exist</p>
+
+    <div class='pre p1 fill-light mt0'>_addElement(obj: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>obj</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
   
 
   

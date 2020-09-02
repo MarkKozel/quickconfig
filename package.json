@@ -1,10 +1,11 @@
 {
   "name": "quickjsonconfig",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Simple JavaScript package to read in json files for project configuration",
   "main": "index.js",
   "scripts": {
     "test": "jest tests",
+    "testWatch": "jest --watchAll tests",
     "docs": "node_modules/documentation/bin/documentation.js build --format html --output docs --project-name 'Quick Json Config' --project-description 'Simple JavaScript package to read in json files for project configuration' --project-homepage 'https://www.npmjs.com/package/quickjsonconfig'"
   },
   "repository": {
