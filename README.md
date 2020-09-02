@@ -105,6 +105,24 @@ console.log(obj)
       Shows: [ { location: 'home', when: 'most nights' } ]
     }
 ```
+*Add Config Element*
+```javascript
+configObj._addElement({ Residence: 'Florida' });
+
+let obj = configObj._getJson();
+console.log(obj)
+```
+
+*Output*
+```{
+      FirstName: 'Gern',
+      LastName: 'Blanston',
+      Position: 'Plain old person',
+      Shows: [ { location: 'home', when: 'most nights' } ],
+      Residence: 'Florida'
+    }
+
+```
 
 ## License:
 [CC-BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
