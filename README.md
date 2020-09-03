@@ -108,7 +108,6 @@ console.log(obj)
 *Add Config Element*
 ```javascript
 configObj._addElement({ Residence: 'Florida' });
-
 let obj = configObj._getJson();
 console.log(obj)
 ```
@@ -121,7 +120,47 @@ console.log(obj)
       Shows: [ { location: 'home', when: 'most nights' } ],
       Residence: 'Florida'
     }
+```
 
+*Delete Config Element*
+```javascript
+configObj._deleteElement('Residence');
+let obj = configObj._getJson();
+console.log(obj)
+```
+
+*Output*
+```{
+      FirstName: 'Gern',
+      LastName: 'Blanston',
+      Position: 'Plain old person',
+      Shows: [ { location: 'home', when: 'most nights' } ]
+    }
+```
+
+**Saving Json Files**
+
+*Save Changes to existing File*
+```javascript
+let configObj = new QuickJsonConfig(path/to/test.json));
+configObj._addElement({ Residence: 'Florida' });
+// update test.json with changes
+configObj._saveFile();
+```
+*Save Changes to different File*
+```javascript
+let configObj = new QuickJsonConfig(path/to/test.json));
+configObj._addElement({ Residence: 'Florida' });
+// create or overwrite test1.json
+configObj._saveFile(path/to/test1.json);
+```
+*Save Changes to different File -and- remember new file name*
+```javascript
+let configObj = new QuickJsonConfig(path/to/test.json));
+configObj._addElement({ Residence: 'Florida' });
+// created or overwritten test1.json and 
+// filename updated to test1.json for future actions
+configObj._saveFile(path/to/test1.json, true);
 ```
 
 ## License:
@@ -131,9 +170,11 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 ## Miscellany
 
 ### Near Future to-dos
-- Add write back to file
+Nothing comes to mind
 
 ### Version History
+1.0.0 - Initial release. Read, Access, Update, Delete, Write (RAUDW) functionality complete
+
 0.0.x - Initial buildup for side project. Implementing minimal elements
 
 ### Historical Context

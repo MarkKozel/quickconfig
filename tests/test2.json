@@ -1,0 +1,12 @@
+{
+  "FirstName": "Gern",
+  "LastName": "Blanston",
+  "Position": "Plain old person",
+  "Shows": [
+    {
+      "location": "home",
+      "when": "most nights"
+    }
+  ],
+  "Residence": "home"
+}

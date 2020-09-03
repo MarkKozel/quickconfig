@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset='utf-8'>
-  <title>Quick Json Config 0.0.5 | Documentation</title>
+  <title>Quick Json Config 1.0.0 | Documentation</title>
   <meta name='description' content='Simple JavaScript package to read in json files for project configuration'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>Quick Json Config</h3>
-          <div class='mb1'><code>0.0.5</code></div>
+          <div class='mb1'><code>1.0.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -82,6 +82,26 @@
                   href='#_addelement'
                   class="">
                   _addElement
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#_deleteelement'
+                  class="">
+                  _deleteElement
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#_savefile'
+                  class="">
+                  _saveFile
                   
                 </a>
                 
@@ -424,6 +444,145 @@
           <div>
             <span class='code bold'>obj</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
 	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='_deleteelement'>
+      _deleteElement
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Removed element from class, and deleted get/set functions</p>
+
+    <div class='pre p1 fill-light mt0'>_deleteElement(el: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>el</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    element to remove
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='_savefile'>
+      _saveFile
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Writes json out to disk. If fileName is supplied, write to that file. If switchToNew is true,
+make fileName the active file from future actions</p>
+
+    <div class='pre p1 fill-light mt0'>_saveFile(fileName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, switchToNew: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>fileName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    path/name of file to save. Null indicates overwrite configFile
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>switchToNew</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>
+            = <code>false</code>)</code>
+	    After saving to new file, use new file name for future saves
+
           </div>
           
         </div>

@@ -33,3 +33,13 @@ configObj._addElement({Residence: 'home'});
 
 obj = configObj._getJson();
 console.log(obj)
+
+let newFile2 = path.join(getProjRoot(), "tests", "test2.json");
+configObj._saveFile(newFile2, false);
+console.log(configObj._configFile);
+
+let newFile3 = path.join(getProjRoot(), "tests", "test3.json");
+configObj._saveFile(newFile3, true);
+console.log(configObj._configFile);
+
+configObj._deleteElement('Residence');
