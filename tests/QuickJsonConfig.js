@@ -43,3 +43,21 @@ configObj._saveFile(newFile3, true);
 console.log(configObj._configFile);
 
 configObj._deleteElement('Residence');
+
+//Second Readonly (default) write attempt
+let configObj2 = new QuickJsonConfig(path.join(getProjRoot(), "tests", "test1.json"));
+
+let result = configObj2._saveFile(newFile3, false);
+console.log(`Tried to write to Default readOnly. Result: ${result}`)
+
+let configObj3 = new QuickJsonConfig(path.join(getProjRoot(), "tests", "test1.json"), true);
+
+result = configObj3._saveFile(newFile3, false);
+console.log(`Tried to write to purposeful readOnly. Result: ${result}`)
+
+//Use object rather than file
+let obj1 = {FirstName:"Maria", profession:"software engineer"};
+let configObj4 = new QuickJsonConfig(obj1, true);
+console.log(configObj4.getFirstName())
+result = configObj4._saveFile(newFile3, false);
+console.log(`Tried to write to purposeful readOnly. Result: ${result}`)

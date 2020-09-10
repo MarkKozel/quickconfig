@@ -1,6 +1,6 @@
 # Quick JSON Config
 
-Simple JavaScript package to read in json files for project configuration
+Simple JavaScript package to read in json files -or- JavaScript Object for project configuration
 
 After elements are read from file and parsed into a JavaScript object, each element is added to the instantiated QuickJsonConfig object as member variables. Also, simple *set* and *get* member functions are added to the same instantiated QuickJsonConfig object
 
@@ -38,7 +38,38 @@ As silly as this is, I think it is pretty cool
 ```javascript
 const QuickJsonConfig = require('quickjsonconfig').QuickJsonConfig;
 
-let configObj = new QuickJsonConfig(path/to/test.json));
+let configObj = new QuickJsonConfig(path/to/test.json);
+
+console.log(configObj.getFirstName())
+console.log(configObj.getLastName())
+console.log(configObj.getPosition())
+console.log(configObj.getShows())
+```
+-or-
+
+*Load js object and call getters*
+```javascript
+let testObj = {
+  "FirstName": "Steve",
+  "LastName": "Martin",
+  "Position": "Standup Philosopher",
+  "Shows": [
+    {
+      "date":"01/21/2016",
+      "showName": "Tonight Show",
+      "host": "Jimmy Fallon"
+    },
+    {
+      "date":"01/28/2016",
+      "showName": "Late night",
+      "host": "Steven Colbert"
+    }
+  ]
+}
+
+const QuickJsonConfig = require('quickjsonconfig').QuickJsonConfig;
+
+let configObj = new QuickJsonConfig(testObj);
 
 console.log(configObj.getFirstName())
 console.log(configObj.getLastName())
@@ -170,9 +201,11 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 ## Miscellany
 
 ### Near Future to-dos
-Nothing comes to mind
+Allow saving to file when starting with JS Object
 
 ### Version History
+1.1.0 - Added ability to send JavaScript object into constructor, rather than just file. Included automatic write prevention when instantiated this way
+
 1.0.0 - Initial release. Read, Access, Update, Delete, Write (RAUDW) functionality complete
 
 0.0.x - Initial buildup for side project. Implementing minimal elements
