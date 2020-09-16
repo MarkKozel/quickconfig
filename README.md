@@ -210,5 +210,8 @@ Allow saving to file when starting with JS Object
 
 0.0.x - Initial buildup for side project. Implementing minimal elements
 
+<a href="https://www.buymeacoffee.com/MarkKozel" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+
+
 ### Historical Context
 Global pandemic, protests erupting around the world. US Postal Service likely to play bigger roll in US Presidential election that Florida did in 2000
