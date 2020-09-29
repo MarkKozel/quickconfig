@@ -206,7 +206,7 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 Allow saving to file when starting with JS Object
 
 ### Version History
-1.1.1 - Added ability to save if class was initially instantiated as a JSON object
+1.1.2 - Added ability to save if class was initially instantiated as a JSON object
 
 Added ability to send JavaScript object into constructor, rather than just file. Included automatic write prevention when instantiated this way
 
