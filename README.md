@@ -171,6 +171,8 @@ console.log(obj)
 
 **Saving Json Files**
 
+can save object that was created from a file or as a json object
+
 *Save Changes to existing File*
 ```javascript
 let configObj = new QuickJsonConfig(path/to/test.json));
@@ -204,7 +206,9 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 Allow saving to file when starting with JS Object
 
 ### Version History
-1.1.0 - Added ability to send JavaScript object into constructor, rather than just file. Included automatic write prevention when instantiated this way
+1.1.1 - Added ability to save if class was initially instantiated as a JSON object
+
+Added ability to send JavaScript object into constructor, rather than just file. Included automatic write prevention when instantiated this way
 
 1.0.0 - Initial release. Read, Access, Update, Delete, Write (RAUDW) functionality complete
 

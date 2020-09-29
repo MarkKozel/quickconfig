@@ -5,10 +5,15 @@ class QuickJsonConfig {
   constructor(srcData, readOnly = true) {
     this._configFile = null;
     this._readOnly = readOnly;
+    this._isFile = false;
 
     if (typeof srcData === 'string' || srcData instanceof String) {
-      this._configFile = srcData;
-      this._readFile();
+      if(fs.existsSync(srcData)){
+        this._configFile = srcData;
+        this._readFile();
+        this._isFile = true;
+      }
+      
     } else {
       if (typeof srcData === 'object' || srcData instanceof Object) {
         this._jsonData = srcData;
@@ -17,16 +22,7 @@ class QuickJsonConfig {
         return;
       }
     }
-
     this._embedJson();
-
-    // if (this._checkPath(srcData)) {
-    //   this._configFile = srcData;
-    //   this._readFile();
-    //   this._embedJson();
-    // } else {
-    //   this._jsonData = {};
-    // }
   }
 
   /**
@@ -122,37 +118,36 @@ class QuickJsonConfig {
       delete this[getName];
       let setName = `set${el}`;
       delete this[setName];
-
     }
   }
 
   /**
    * Writes json out to disk. If fileName is supplied, write to that file. If switchToNew is true,
    * make fileName the active file from future actions
+   * classes initially created from JSON rather that a file can be saved as long as a filename is supplied
    * @param {string} fileName - path/name of file to save. Null indicates overwrite configFile
    * @param {boolean} switchToNew - After saving to new file, use new file name for future saves
-   * * @returns {boolean} - true if successful, false if error writing -or- readOnly
+   * @returns {boolean} - true if successful, false if error writing -or- readOnly
    */
   _saveFile(fileName, switchToNew = false) {
-    let result = '';
+    let result = false;
 
-    if (!this._readOnly && this._configFile !== null) {
+    // if (!this._readOnly && this._configFile !== null) {
+      if (!this._readOnly && (this._isFile || (!this._isFile && fileName))) {
       let currFileName = (fileName !== null) ? fileName : this._configFile;
       try {
         fs.writeFileSync(currFileName, JSON.stringify(this._jsonData, null, 2), ['utf8', 'w']);
         result = true;
       } catch (error) {
         console.error(error);
-        result = false;
       }
       if ((fileName !== null) && switchToNew) {
         this._configFile = fileName
       }
-    } else {
-      result = false;
     }
     return result;
   }
+
 }
 
 if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
