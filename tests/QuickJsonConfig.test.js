@@ -26,6 +26,8 @@ let testJson = {
   ]
 }
 
+//reset file from last run
+fs.writeFileSync(path.join(getProjRoot(), "tests", "test1.json"), JSON.stringify(testJson, null, 2), ['utf8', 'w']);
 
 describe("Constructor", () => {
   test("simple new good file", () => {

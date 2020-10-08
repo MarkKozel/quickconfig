@@ -134,7 +134,7 @@ class QuickJsonConfig {
 
     // if (!this._readOnly && this._configFile !== null) {
       if (!this._readOnly && (this._isFile || (!this._isFile && fileName))) {
-      let currFileName = (fileName !== null) ? fileName : this._configFile;
+      let currFileName = ((typeof fileName === 'undefined') || (fileName === null)) ? this._configFile : fileName;
       try {
         fs.writeFileSync(currFileName, JSON.stringify(this._jsonData, null, 2), ['utf8', 'w']);
         result = true;
