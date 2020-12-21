@@ -169,6 +169,30 @@ console.log(obj)
     }
 ```
 
+*Reread config file*
+
+Removed all config elements (get/set) and element from internal json container. File is re-read and all elements are re-created
+
+Used to load changes in json file w/o creating a new ```QuickJsonConfig``` object
+
+Returns ```true``` if successful, ```false``` otherwise. Retrusn ```false``` if ```QuickJsonConfig``` was created with object rather than file
+
+```javascript
+if(configObj.rereadFile()){
+   let obj = configObj._getJson();
+   console.log(obj)
+}
+```
+
+*Output*
+```{
+      FirstName: 'Gern',
+      LastName: 'Blanston',
+      Position: 'Plain old person',
+      Shows: [ { location: 'home', when: 'most nights' } ]
+    }
+```
+
 **Saving Json Files**
 
 can save object that was created from a file or as a json object
@@ -206,9 +230,7 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 Allow saving to file when starting with JS Object
 
 ### Version History
-1.1.2 - Added ability to save if class was initially instantiated as a JSON object
-
-Added ability to send JavaScript object into constructor, rather than just file. Included automatic write prevention when instantiated this way
+1.1.4 - Added ```rereadFile()``` to re-read file and re-build member get/set functions
 
 1.0.0 - Initial release. Read, Access, Update, Delete, Write (RAUDW) functionality complete
 

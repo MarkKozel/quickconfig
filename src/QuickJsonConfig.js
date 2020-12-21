@@ -8,12 +8,12 @@ class QuickJsonConfig {
     this._isFile = false;
 
     if (typeof srcData === 'string' || srcData instanceof String) {
-      if(fs.existsSync(srcData)){
+      if (fs.existsSync(srcData)) {
         this._configFile = srcData;
         this._readFile();
         this._isFile = true;
       }
-      
+
     } else {
       if (typeof srcData === 'object' || srcData instanceof Object) {
         this._jsonData = srcData;
@@ -23,6 +23,24 @@ class QuickJsonConfig {
       }
     }
     this._embedJson();
+  }
+
+  //Clear _jsonData and delete all set/get members. Then re-read file and re-build elements
+  rereadFile() {
+    let result = false; //indicate failed re-read
+
+    if (this._isFile) {
+      //Delete all Elements
+      this._dislodgeJson();
+      //Re-read file
+      this._readFile();
+      //Re-Build member elements
+      this._embedJson();
+
+      result = true;
+    }
+
+    return result;
   }
 
   /**
@@ -92,6 +110,17 @@ class QuickJsonConfig {
   }
 
   /**
+   * Traverses json and removes each element from class and json container
+   */
+  _dislodgeJson() {
+    for (let el in this._jsonData) {
+      if (this[`set${el}`]) { delete this[`set${el}`]; }
+      if (this[`get${el}`]) { delete this[`get${el}`]; }
+      if (this._jsonData[el]) { delete this._jsonData[el]; }
+    }
+  }
+
+  /**
    * Adds a new element if it does not already exist
    * @param {object} obj 
    */
@@ -133,7 +162,7 @@ class QuickJsonConfig {
     let result = false;
 
     // if (!this._readOnly && this._configFile !== null) {
-      if (!this._readOnly && (this._isFile || (!this._isFile && fileName))) {
+    if (!this._readOnly && (this._isFile || (!this._isFile && fileName))) {
       let currFileName = ((typeof fileName === 'undefined') || (fileName === null)) ? this._configFile : fileName;
       try {
         fs.writeFileSync(currFileName, JSON.stringify(this._jsonData, null, 2), ['utf8', 'w']);
